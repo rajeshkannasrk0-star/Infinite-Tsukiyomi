@@ -1,0 +1,44 @@
+// Add these functions to your script.js file
+function editDataNode(modId, subName, fieldId, index) {
+  const logs = fetchLogs(`${modId}_${subName}`);
+  const logToEdit = logs[index];
+  
+  const inputField = document.getElementById('input-' + fieldId);
+  if(inputField) {
+    inputField.value = logToEdit.content;
+    inputField.scrollIntoView({ behavior: 'smooth' });
+    inputField.focus();
+  }
+  
+  deleteDataNode(modId, subName, fieldId, index);
+  // Trigger a message if your system has a toast function
+  console.log("Data loaded into input. Edit and Commit.");
+}
+
+// Ensure your refreshSubStream function looks like this:
+function refreshSubStream(modId, subName, fieldId) {
+  const logs = fetchLogs(`${modId}_${subName}`);
+  const container = document.getElementById(`stream-${fieldId}`);
+  if(!container) return;
+  container.innerHTML = '';
+
+  if (logs.length === 0) {
+    container.innerHTML = '<span class="empty-msg">No logs recorded.</span>';
+    return;
+  }
+
+  logs.forEach((log, index) => {
+    const div = document.createElement('div');
+    div.className = 'history-item';
+    // Inside your loop in refreshSubStream
+div.innerHTML = `
+  <div class="action-btns">
+    <button class="edit-log-btn" onclick="editDataNode('${modId}', '${subName}', '${fieldId}', ${index})">✏️</button>
+    <button class="delete-log-btn" onclick="deleteDataNode('${modId}', '${subName}', '${fieldId}', ${index})">✕</button>
+  </div>
+  <span class="history-meta">// TIMESTAMPED: ${log.timestamp}</span>
+  <div class="history-text" style="padding-right: 20px;">${log.content}</div>
+`;
+    container.appendChild(div);
+  });
+}
