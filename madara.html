@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en)
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Rajeshkanna — Inner Self OS Pro Ultra v6.2</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+   :root {
+  /* Dynamic Palette: Deep Midnight & Tactical Accents */
+  --bg: #030509;             /* Absolute deep dark base */
+  --bg-secondary: #0a0e14;   /* Slightly lighter for layers */
+  --surface: rgba(15, 23, 30, 0.6); /* Glassmorphism base */
+  --surface2: rgba(30, 41, 59, 0.8);
+  
+  /* Accent Glows */
+  --accent: #3b82f6;         /* Tactical Blue */
+  --warning: #f59e0b;        /* Engineering Gold */
+  --danger: #ef4444;         /* Shadow Red */
+  --success: #10b981;        /* Success Green */
+  
+  /* Text & Border */
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg);
+  
+  /* PREMIUM MESH GRADIENT EFFECT */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.8) 0px, transparent 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  overflow: hidden; /* Enables individual container scrolling */
+}
+
+/* Glassmorphism containers upgrade for background contrast */
+.view-container, .sub-topic-card, .dash-card {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Background */
+#sidebar {
+  background: rgba(3, 5, 12, 0.85);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+}
+
+    /* ALL CONTENT SECTIONS GET INDEPENDENT SCROLLBARS */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface2);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden; /* Lock viewport bounce */
+      opacity: 0;
+      animation: coreStageEntrance 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes coreStageEntrance {
+      0% { opacity: 0; transform: scale(0.98); filter: blur(4px); }
+      100% { opacity: 1; transform: scale(1); filter: blur(0); }
+    }
+
+    /* ==========================================
+       VERTICAL ARCHITECTURE WITH FIXED VIEWPORT SCROLLBARS
+       ========================================== */
+
+    /* Main Containers fixed constraint mapping layout limits */
+    .view-container {
+      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: none;
+      /* View container bounds lock panni dynamic scroll control tracking features setup templates */
+      max-height: calc(100vh - 100px); 
+      overflow-y: auto !important; 
+      padding-right: 12px;
+    }
+
+    /* 1 to 15 OPERATIONAL FRAMEWORKS LAYOUT: Reverted layout flow loops back into standard vertical lines */
+    .sub-topic-grid {
+      display: flex !important;
+      flex-direction: column !important; /* Stack elements strictly top to bottom */
+      overflow-x: hidden !important;
+      overflow-y: visible !important; /* Managed by core view-container handles */
+      gap: 24px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    /* Framework cards layout adaptation constraints checks template models */
+    .sub-topic-card {
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      width: 100%; /* Spans full width elegantly */
+      min-width: 100%;
+      max-height: none; 
+      overflow-y: visible; 
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-bounce, all 0.3s ease);
+    }
+
+    /* OPERATOR DASHBOARD LAYOUT: Clean Vertical Grid stacking alignment */
+    .dashboard-grid {
+      display: flex !important;
+      flex-direction: column !important; /* Dynamic side components layers reset sequence */
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+      gap: 24px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    /* Dashboard items width alignment scaling mapping rules */
+    .dash-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%; 
+      min-width: 100%;
+      max-height: none;
+      overflow-y: visible;
+    }
+
+    .dashboard-span-2 {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    /* OPERATIONAL FITNESS MATRIX & ANNUAL REVIEW SCREEN ADJUSTMENT */
+    .fitness-matrix-grid {
+      display: flex !important;
+      flex-direction: column !important; /* Structural vertical chain flow loops rules mapping */
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+      gap: 24px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    .fitness-col-panel {
+      width: 100%;
+      min-width: 100%;
+      max-height: none;
+      overflow-y: visible;
+    }
+
+    /* Premium System Vertical Scrollbar Styles Setup Control Track Indicators */
+    .view-container::-webkit-scrollbar {
+      width: 8px; /* Elegant vertical scroll track dimension footprint */
+    }
+
+    .view-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .view-container::-webkit-scrollbar-thumb {
+      background: var(--surface2);
+      border-radius: 10px;
+      border: 2px solid var(--bg);
+    }
+
+    .view-container::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gradient);
+    }
+
+    /* ==========================================
+       CALENDAR AND STRUCTURAL CHANNELS REST
+       ========================================== */
+    .calendar-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .calendar-day-header {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .calendar-date-node {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--mono);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .calendar-date-node:hover {
+      transform: scale(1.1);
+      z-index: 5;
+    }
+
+    .calendar-date-node.status-filled {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: var(--success) !important;
+      color: #a7f3d0 !important;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .calendar-date-node.status-empty {
+      background: rgba(239, 68, 68, 0.15) !important;
+      border-color: rgba(239, 68, 68, 0.5) !important;
+      color: #fca5a5 !important;
+    }
+
+    .calendar-date-node.status-future {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    /* DATA ENTRY LINEAR BUTTON LAYOUTS & HOVERS */
+    .history-item {
+      position: relative;
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--accent2);
+      padding: 12px 90px 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .history-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .action-btns {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .edit-log-btn,
+    .delete-log-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      opacity: 0.5;
+      transition: var(--transition-smooth);
+      color: #ffffff;
+    }
+
+    .edit-log-btn:hover { opacity: 1; transform: scale(1.15); color: var(--accent); }
+    .delete-log-btn:hover { opacity: 1; transform: scale(1.15); color: var(--danger); }
+
+    .wallpaper-matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(3, 7, 18, 0.95)),
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
+      z-index: -2;
+    }
+
+    .character-sentinels-container {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      padding: 0 2%;
+      opacity: 0.65;
+    }
+
+    .sentinel-character {
+      width: 24%;
+      height: 90vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) contrast(1.15) brightness(0.7);
+      border-radius: 20px 20px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* MOBILE NAVIGATION BANNER */
+    .mobile-nav-btn {
+      display: none;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 99999;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .mobile-nav-btn.close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 18px;
+      padding: 6px 14px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .mobile-nav-btn.open-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    /* LOGIN CONTAINER SCREEN WITH BACKGROUND OVERLAY */
+    #login-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000000;
+      overflow: hidden;
+      transition: opacity 0.4s ease;
+    }
+
+    #login-screen::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('zoro_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.35) contrast(1.1);
+      z-index: -1;
+    }
+
+    .login-card {
+      background: rgba(10, 15, 30, 0.75);
+      border: 1px solid rgba(255, 75, 75, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 40px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .shake-err {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* VERTICAL SIDEBAR MODULE WITH CONTINUOUS INTERNAL SCROLLBAR */
+    #sidebar {
+      width: 340px;
+      background: #0f172a;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-shrink: 0;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo { font-family: var(--mono); font-size: 10px; color: var(--accent2); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 4px; }
+    .sidebar-title { font-size: 20px; font-weight: 700; color: #ffffff; }
+
+    .nav-section-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: #64748b; text-transform: uppercase; padding: 16px 24px 6px;
+    }
+
+    .frameworks-space-container {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      margin: 10px 12px;
+      padding: 4px 0 10px 0;
+    }
+
+    .frameworks-space-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 14px 8px 12px;
+    }
+
+    .frameworks-toggle-trigger {
+      background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); color: #a5b4fc; font-family: var(--mono); font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 6px; cursor: pointer; text-transform: uppercase;
+    }
+
+    #sidebar-nav-collapsible {
+      opacity: 1;
+      max-height: none !important;
+    }
+
+    #sidebar-nav {
+      display: flex;
+      flex-direction: column; 
+      gap: 4px;
+      padding: 0 12px;
+    }
+
+    .sidebar-link {
+      position: relative;
+      transition: var(--transition-smooth);
+      overflow: hidden;
+    }
+
+    .sidebar-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: var(--warning);
+      transition: var(--transition-smooth);
+    }
+
+    .sidebar-link:hover::after {
+      left: 0;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(6px);
+      padding-left: 24px;
+    }
+
+    .module-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 11px 14px;
+      background: none;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #94a3b8 !important;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .module-btn span { color: #94a3b8 !important; }
+    .module-btn:hover { background: rgba(255, 255, 255, 0.04); }
+    .module-btn:hover span { color: #f8fafc !important; }
+
+    .module-btn.active {
+      background: rgba(99, 102, 241, 0.15);
+      box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.3);
+    }
+    .module-btn.active span { color: #ffffff !important; font-weight: 600; }
+
+    .badge {
+      font-family: var(--mono); font-size: 9px; padding: 2px 7px; border-radius: 6px; background: rgba(255, 255, 255, 0.08); color: #94a3b8;
+    }
+    .module-btn.active .badge { background: var(--accent); color: white; }
+
+    .special-btn { border: 1px dashed rgba(16, 185, 129, 0.3); margin: 2px 12px; font-weight: 600; }
+    .special-btn.home { color: #3b82f6 !important; border-color: rgba(59, 130, 246, 0.3); }
+    .special-btn.home span { color: #3b82f6 !important; }
+    .special-btn.annual { color: var(--success) !important; border-color: rgba(16, 185, 129, 0.3); }
+    .special-btn.annual span { color: var(--success) !important; }
+
+    /* INDEPENDENT WORKSPACE LAYOUT */
+    #main-content {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .view-container.active-view { 
+      display: block !important; 
+      animation: panelSlideUpIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    @keyframes panelSlideUpIn {
+      0% { opacity: 0; transform: translateY(24px) scale(0.99); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .fitness-col-panel, 
+    .sub-topic-card, 
+    .monthly-reporter-chart-card {
+      transition: var(--transition-bounce);
+    }
+
+    .fitness-col-panel:hover, 
+    .sub-topic-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .sub-topic-header {
+      font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); padding-bottom: 10px;
+    }
+
+    .entry-interface { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; flex-shrink: 0; }
+    .entry-textarea {
+      width: 100%; background: rgba(5, 5, 10, 0.4); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: var(--sans); font-size: 14px; padding: 12px; outline: none;
+    }
+
+    .pin-input-field {
+      background: rgba(5, 5, 10, 0.7); border: 1px solid var(--border); border-radius: 10px; color: #fff; padding: 12px 14px; font-size: 14px; outline: none;
+    }
+    .pin-input-field:focus { border-color: var(--accent); }
+
+    .commit-btn {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; align-self: flex-end;
+    }
+    .commit-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+    .history-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+      overflow-y: auto; 
+      padding-right: 4px;
+    }
+
+    .history-meta { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 4px; display: block; }
+    .history-text { font-size: 13.5px; color: #e2e8f0; line-height: 1.5; white-space: pre-wrap; }
+
+    .search-filter-bar { display: flex; gap: 12px; }
+    .dash-search, .dash-select {
+      background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); color: #fff; padding: 8px 12px; border-radius: 8px; outline: none;
+    }
+    .dash-search { flex: 1; }
+
+    .goal-list { display: flex; flex-direction: column; gap: 10px; }
+    .goal-item { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+
+    .progress-container { margin-top: 14px; }
+    .progress-meta { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+    .progress-bar-bg { background: rgba(255, 255, 255, 0.05); height: 12px; border-radius: 6px; overflow: hidden; }
+    .progress-bar-fill { background: var(--accent-gradient); height: 100%; transition: width 0.3s ease; }
+
+    .table-streaks { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    .table-streaks th { padding: 8px; color: var(--muted); border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 11px; }
+    .table-streaks td { padding: 10px 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.02); }
+
+    /* PROFILE COLUMN ALIGNMENT STACKS */
+    .pattern-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pattern-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .pattern-box h4 { font-size: 13px; text-transform: uppercase; font-family: var(--mono); margin-bottom: 10px; }
+    .pattern-box.good h4 { color: var(--success); }
+    .pattern-box.bad h4 { color: var(--danger); }
+    .pattern-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+
+    /* SHADOW TERMINAL STRUCTURAL CODE CONTAINER */
+    .shadow-lock-container {
+      border: 2px dashed var(--danger) !important; background: rgba(15, 20, 40, 0.6) !important; border-radius: 22px; padding: 32px;
+    }
+
+    .pin-wrapper { position: relative; max-width: 400px; display: flex; gap: 10px; margin-top: 16px; }
+    .shadow-pin-input-field { flex: 1; background: rgba(5, 8, 22, 0.6); border: 1px solid var(--border); border-radius: 8px; padding: 10px 40px 10px 12px; color: #fff; outline: none; }
+    .shadow-unlock-btn { background: var(--danger); border: none; color: white; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+
+    .annual-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .annual-box label { display: block; font-family: var(--mono); font-size: 11px; color: var(--accent2); text-transform: uppercase; margin-bottom: 8px; }
+    .annual-box input, .annual-box textarea {
+      width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: 8px; padding: 10px; color: #fff; font-family: var(--sans); font-size: 14px; outline: none;
+    }
+
+    /* GLOBAL TOAST SIGNALS */
+    .toast-banner {
+      position: fixed; bottom: 24px; right: 24px; padding: 12px 20px; border-radius: 10px; font-size: 13.5px; font-weight: 500; display: none; z-index: 50000; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .toast-success { background: #064e3b; color: #a7f3d0; border: 1px solid #059669; }
+    .toast-error { background: #7f1d1d; color: #fca5a5; border: 1px solid #dc2626; }
+
+    .empty-msg { font-size: 12px; color: var(--muted); font-style: italic; }
+
+    .fitness-col-header { font-size: 16px; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .quick-input-group { display: flex; gap: 10px; flex-shrink: 0; }
+    .quick-text-field { flex: 1; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 13.5px; outline: none; }
+    .quick-add-btn { background: var(--surface2); border: 1px solid var(--border); color: #fff; padding: 0 14px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+
+    .fitness-tasks-scroll-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto; 
+      flex-grow: 1;
+    }
+
+    .task-row-node {
+      display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border); padding: 10px 14px; border-radius: 10px; cursor: pointer;
+    }
+    .task-left-block { display: flex; align-items: center; gap: 10px; }
+    .task-label-text { font-size: 13.5px; }
+    .task-row-node.completed .task-label-text { text-decoration: line-through; color: var(--muted); }
+
+    .task-delete-trigger {
+      background: none; border: none; color: rgba(255, 255, 255, 0.3); cursor: pointer; font-size: 12px; padding: 2px 6px;
+    }
+    .task-delete-trigger:hover { color: var(--danger); }
+
+    .monthly-reporter-chart-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px;
+      margin-top: 24px;
+    }
+
+    /* ==========================================
+       WELCOME POPUP MODAL ARCHITECTURE
+       ========================================== */
+    .master-welcome-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(3, 5, 12, 0.9);
+      backdrop-filter: blur(20px);
+      z-index: 2000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .master-welcome-overlay.show-popup {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .master-welcome-card {
+      background: linear-gradient(135deg, rgba(20, 10, 10, 0.9), rgba(5, 5, 5, 0.95));
+      border: 2px solid var(--danger);
+      box-shadow: 0 0 50px rgba(239, 68, 68, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      transform: scale(0.7) rotate(-5deg);
+      transition: var(--transition-bounce);
+    }
+    .master-welcome-overlay.show-popup .master-welcome-card {
+      transform: scale(1) rotate(0deg);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      #sidebar { width: 280px; height: 100vh; position: fixed; top: 0; left: -280px; transition: left 0.3s ease; z-index: 99998; box-shadow: 25px 0 50px rgba(0, 0, 0, 0.8); }
+      #sidebar.mobile-active { left: 0; }
+      .mobile-nav-btn.open-btn.logged-in { display: block; }
+      .mobile-nav-btn.close-btn { display: block; }
+      #main-content { width: 100%; padding-top: 60px; }
+      .view-container { padding: 16px; }
+      .pattern-group { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="toast-node" class="toast-banner"></div>
+  <div class="wallpaper-matrix-bg"></div>
+
+  <div class="character-sentinels-container" id="visual-sentinels">
+    <div class="sentinel-character char-zoro" title="Roronoa Zoro"></div>
+    <div class="sentinel-character char-zenitsu" title="Zenitsu Agatsuma"></div>
+    <div class="sentinel-character char-madara" title="Madara Uchiha"></div>
+    <div class="sentinel-character char-igris" title="Igris the Bloodred"></div>
+  </div>
+
+  <!-- OVERLAY GATE: MASTER WELCOME SCREEN POPUP MODAL -->
+  <div id="master-welcome-popup" class="master-welcome-overlay">
+    <div class="master-welcome-card">
+      <div style="font-size: 50px; margin-bottom: 16px; animation: pulse 2s infinite;">🔴</div>
+      <h1 style="color: var(--danger); font-size: 32px; font-weight: 800; font-family: var(--mono); letter-spacing: 1px; margin-bottom: 12px;">
+        Welcome Master Madara Uchiha
+      </h1>
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px;">"Wake up to reality! Nothing ever goes as planned in this accursed world. The longer you live, the more you realize that in this reality only pain, suffering, and futility exist."</p>
+      <button class="shadow-unlock-btn" style="padding: 12px 32px; margin: 0 auto;" onclick="dismissMasterPopup()">Command Node</button>
+    </div>
+  </div>
+
+  <button id="mobile-menu-trigger" class="mobile-nav-btn open-btn" onclick="openSidebar()">☰ Menu</button>
+
+  <div id="login-screen">
+    <div class="login-card">
+      <h2 style="color: var(--danger); margin-bottom: 8px; font-weight: 700;">OPERATOR INTERFACE</h2>
+      <p style="color: var(--muted); font-size: 13px; margin-bottom: 24px;">Authorization Required</p>
+      <div style="margin-bottom: 20px; text-align: left;">
+        <input type="password" id="operator-password-input" class="pin-input-field" placeholder="Enter Node Password..." style="width: 100%; box-sizing: border-box;" />
+        <div id="login-error-msg" style="display: none; font-size: 12px; margin-top: 8px; font-weight: 500;"></div>
+      </div>
+      <button class="shadow-unlock-btn" style="width: 100%; padding: 14px;" onclick="handleOperatorAuthentication()">
+        Authenticate Node
+      </button>
+    </div>
+  </div>
+
+  <div id="sidebar" style="display: none;">
+    <button class="mobile-nav-btn close-btn" onclick="closeSidebar()">✕</button>
+    <div class="sidebar-header">
+      <div class="sidebar-logo">Inner Self OS</div>
+      <div class="sidebar-title">Kannarajesh</div>
+    </div>
+    <div class="nav-section-label">Core Environment</div>
+    <button class="module-btn special-btn home sidebar-link" onclick="activateView('dashboard-view')">
+      <span>📊 Control Panel</span>
+    </button>
+    <button class="module-btn special-btn annual sidebar-link" onclick="activateView('annual-review-view')">
+      <span>🦅 Annual Framework</span>
+    </button>
+    <button class="module-btn special-btn sidebar-link" onclick="activateView('fitness-checklist-view')" style="color: var(--warning) !important; border-color: rgba(245,158,11,0.3);">
+      <span style="color: var(--warning) !important;">🏋️ Fitness Tracker</span>
+    </button>
+    
+    <div class="frameworks-space-container">
+      <div class="frameworks-space-header">
+        <span class="nav-section-label" style="padding:0;">Framework Modules</span>
+        <button id="toggle-frameworks-btn" class="frameworks-toggle-trigger" onclick="toggleOperationalTabs()">Collapse</button>
+      </div>
+      <div id="sidebar-nav-collapsible">
+        <nav id="sidebar-nav"></nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-content" style="display: none;">
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboard-view" class="view-container active-view">
+      <div style="margin-bottom: 12px;">
+        <h1 style="font-size: 32px; font-weight: 800; letter-spacing: -0.5px;">SYSTEM COMMAND</h1>
+        <p style="color: var(--muted); font-size: 14px;">Telemetry overview arrays and continuous identity calibration profiles.</p>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card dashboard-span-2">
+          <div class="dash-card-title">📈 Metric Target Integrity Integration</div>
+          <div class="progress-container">
+            <div class="progress-meta">
+              <span style="font-size:13px; color:var(--muted);">Category Completion Ratio</span>
+              <span id="metric-percentage-txt" style="font-family:var(--mono); font-size:14px; font-weight:700; color:var(--accent2);">0% (0/0)</span>
+            </div>
+            <div class="progress-bar-bg" style="height:20px; border-radius:10px;">
+              <div id="metric-graph-fill" class="progress-bar-fill" style="width: 0%; background:linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">🎯 Primary Intentions & Trajectories</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <h4 style="font-size:12px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; font-family:var(--mono);">Short-Term</h4>
+              <div class="goal-list">
+                <div class="goal-item"><span style="color:var(--success);">✓</span> Complete RCC Unit 1</div>
+                <div class="goal-item"><span style="color:var(--muted);">□</span> Wake up before 6 AM</div>
+                <div class="goal-item"><span style="color:var(--muted);">□</span> Exercise 30 min daily</div>
+              </div>
+            </div>
+            <div>
+              <h4 style="font-size:12px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; font-family:var(--mono);">Long-Term</h4>
+              <div class="goal-list">
+                <div class="goal-item">🎯 Crack GATE Civil with 70+</div>
+                <div class="goal-item">🎯 Financial Independence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">🔥 Identity Repetition (Habit Streaks)</div>
+          <div style="overflow-x: auto; width:100%;">
+            <table class="table-streaks">
+              <thead>
+                <tr>
+                  <th>HABIT ENGINE</th>
+                  <th>CURRENT STREAK</th>
+                  <th>HISTORICAL BEST</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Exercise Array</td>
+                  <td><b style="color:var(--success);">7 days</b></td>
+                  <td>14 days</td>
+                </tr>
+                <tr>
+                  <td>No Instagram/Dopamine Loop</td>
+                  <td><b style="color:var(--success);">12 days</b></td>
+                  <td>25 days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="dash-card dashboard-span-2">
+          <div class="dash-card-title">🔍 Unified Real-Time Feed</div>
+          <div class="search-filter-bar">
+            <input type="text" id="feed-search" class="dash-search" placeholder="Search telemetry..." oninput="renderRecentFeed()" />
+            <select id="feed-filter" class="dash-select" onchange="renderRecentFeed()">
+              <option value="all">All Channels</option>
+            </select>
+          </div>
+          <div class="history-stream" id="global-dashboard-feed" style="max-height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNUAL REVIEW VIEW -->
+    <div id="annual-review-view" class="view-container">
+      <div style="margin-bottom: 24px;">
+        <h1 style="font-size: 28px; font-weight:700;">🦅 High-Altitude Annual Retrospective Review</h1>
+        <p style="color: var(--muted); font-size: 14px;">Evaluate lifecycle arcs and strategy shifts across major calendar transitions.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;" id="annual-review-inputs-anchor"></div>
+    </div>
+
+    <!-- OPERATIONAL FITNESS CHECKLIST MATRIX VIEW PANEL CONTAINER -->
+    <div id="fitness-checklist-view" class="view-container">
+      <div style="margin-bottom: 24px;">
+        <h1 style="font-size: 28px; font-weight:700; color: var(--warning); margin-bottom:4px;">⚡ Operational Fitness Checklist Matrix</h1>
+        <p style="color: var(--muted); font-size: 14px;">Track targets daily. Unsaved changes metrics recalculate status patterns loops automatically.</p>
+      </div>
+
+      <!-- CHECKLIST COLUMNS STRUCTURE -->
+      <div class="fitness-matrix-grid">
+        <div class="fitness-col-panel">
+          <div class="fitness-col-header" style="color:#f59e0b;">🏋️ Gym List</div>
+          <div class="quick-input-group">
+            <input type="text" id="add-gym-txt" class="quick-text-field" placeholder="Add Gym Task..." onkeypress="if(event.key==='Enter') createTaskItem('gym')" />
+            <button class="quick-add-btn" onclick="createTaskItem('gym')">Add</button>
+          </div>
+          <div id="gym-tasks-container" class="fitness-tasks-scroll-container"></div>
+        </div>
+
+        <div class="fitness-col-panel">
+          <div class="fitness-col-header" style="color:#10b981;">📚 Study List</div>
+          <div class="quick-input-group">
+            <input type="text" id="add-study-txt" class="quick-text-field" placeholder="Add Study Task..." onkeypress="if(event.key==='Enter') createTaskItem('study')" />
+            <button class="quick-add-btn" onclick="createTaskItem('study')">Add</button>
+          </div>
+          <div id="study-tasks-container" class="fitness-tasks-scroll-container"></div>
+        </div>
+
+        <div class="fitness-col-panel">
+          <div class="fitness-col-header" style="color:#6366f1;">💼 Routine List</div>
+          <div class="quick-input-group">
+            <input type="text" id="add-routine-txt" class="quick-text-field" placeholder="Add Routine Task..." onkeypress="if(event.key==='Enter') createTaskItem('routine')" />
+            <button class="quick-add-btn" onclick="createTaskItem('routine')">Add</button>
+          </div>
+          <div id="routine-tasks-container" class="fitness-tasks-scroll-container"></div>
+        </div>
+      </div>
+
+      <!-- CALENDAR TRACKER CONTAINER -->
+      <div class="monthly-reporter-chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 12px;">
+          <h3 style="font-size: 15px; font-weight: 700; color: #fff;">📅 Monthly Habit Completion Matrix</h3>
+          <div style="font-size: 11px; font-family: var(--mono);">
+            <span style="color:var(--success); margin-right: 8px;">■ Filled Log</span>
+            <span style="color:var(--danger)">■ Empty Log</span>
+          </div>
+        </div>
+        <div class="calendar-matrix-grid" id="fitness-calendar-anchor"></div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC FRAMEWORK VIEWS ROOT -->
+    <div id="dynamic-views-root"></div>
+  </div>
+
+  <script>
+    // TIMELINE CONFIG STRUCTURE
+    const TIMELINE_CONFIG = [
+      { id: 'm1', name: '1. Truths & Blindspots', objective: 'Acknowledge hard metrics and baseline realities.', items: ['Illusions Shattered', 'Uncomfortable Truths', 'Epiphanies (Realizations)', 'Blindspots'] },
+      { id: 'm2', name: '2. Identity & Future Self', objective: 'Understand who you\'re becoming.', items: ['Short-term Desires', 'Long-term Ambitions', 'Identity', 'Values', 'Philosophy of Life', 'Questions to Future Self', 'Identity Drift (Who I am Becoming)'] },
+      { id: 'm3', name: '3. Decisions & Judgment', objective: 'Improve decision-making accuracy loops.', items: ['Major Decisions', 'Predictions', 'I Was Right', 'I Was Wrong', 'Changed Opinions', 'Things I Underestimated'] },
+      { id: 'm4', name: '4. Emotions & Inner World', objective: 'Deconstruct internal baseline pattern anomalies.', items: ['Emotions', 'Happiness Moments', 'Fears', 'Triggers', 'Envy (Hidden Desire)', 'Gratitude (satisfaction)', 'Things I Avoid Thinking About'] },
+      { id: 'm5', name: '5. Habits & Time', objective: 'Quantify behavior arrays and attention allocation.', items: ['Habits Gained', 'Habits Lost', 'Time Audit', 'Boredom & Escapes (Distraction like insta)', 'Energy Leaks', 'Things I Avoid', 'Time Wasters'] },
+      { id: 'm6', name: '6. Health & Energy', objective: 'Track bio-hardware platform states.', items: ['Exercise', 'Sleep', 'Weight', 'Illness', 'Energy Tracker'] },
+      { id: 'm7', name: '7. Relationships & People', objective: 'Audit environmental and peer circle value vectors.', items: ['Relationships', 'Influential People', 'Admiration', 'Conversations', 'Important Memories'] },
+      { id: 'm8', name: '8. Learning & Curiosity', objective: 'Preserve exploratory and skill acquisition lines.', items: ['Books Read', 'Skills Acquired', 'New Ideas', 'Curiosities', 'Questions'] },
+      { id: 'm9', name: '9. Money & Resources', objective: 'Expose resource velocity behavior patterns.', items: ['Income', 'Expenses', 'Investments', 'Purchases Regretted'] },
+      { id: 'm10', name: '10. Achievements & Stats', objective: 'Validate structural milestone updates.', items: ['Big Wins', 'Small Wins', 'Personal Statistics', 'Peak Experiences'] },
+      { id: 'm11', name: '11. Insights & Wisdom', objective: 'Maintain an abstract operational rule matrix.', items: ['Mental Models (Way of Thinking)', 'Aphorisms (Quote for your experience)', 'Quotes', 'Heuristics (problems solved with why?)', 'Life Rules'] },
+      { id: 'm12', name: '12. Chaos & Failure', objective: 'Document system entropy vectors and crash events.', items: ['Mistakes', 'Failures', 'Regrets', 'Anxieties', 'Disappointments', 'Crisis Events'] },
+      { id: 'm13', name: '13. Media & Inputs', objective: 'Filter toxic information feeds from consciousness.', items: ['Movies', 'Shows', 'Music', 'Games', 'Art', 'Articles', 'Podcasts', 'Social Media Overdose'] },
+      { id: 'm14', name: '14. Sandbox & Unsorted', objective: 'Unstructured scratch space parameters.', items: ['Unsorted Logs', 'Shower Thoughts', 'Random Links', 'Drafts'] },
+      { id: 'm15', name: '15. Shadow Matrix Protocol', isLocked: true, name: '15. Shadow Matrix Protocol', objective: 'Classified cryptographic configuration block.', items: ['Core Shadow Logs', 'Prohibited Musings'] }
+    ];
+
+    const ANNUAL_INPUTS = [
+      { type: 'input', label: 'Biggest Achievement', id: 'ar_b_ach' },
+      { type: 'input', label: 'Biggest Mistake', id: 'ar_b_mist' },
+      { type: 'input', label: 'Biggest Lesson', id: 'ar_b_less' },
+      { type: 'textarea', label: 'Who was I on January 1?', id: 'ar_q_jan' },
+      { type: 'textarea', label: 'Who am I now?', id: 'ar_q_now' }
+    ];
+
+    // Local database engines allocation mapping
+    let calendarFitnessDatabase = JSON.parse(localStorage.getItem('calendarFitnessDatabase')) || {};
+    let appDataLogsStore = JSON.parse(localStorage.getItem('appDataLogsStore')) || {};
+
+    function showToastNotification(message, flag = 'success') {
+      const toast = document.getElementById('toast-node');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.className = `toast-banner ${flag === 'error' ? 'toast-error' : 'toast-success'}`;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+
+    // Proxy functions for backward compatibility with old database schemas if any
+    function triggerToast(m, e) { showToastNotification(m, e ? 'error' : 'success'); }
+    function fetchLogs(key) { return JSON.parse(localStorage.getItem(`v6_db_${key}`)) || []; }
+    function commitLogs(key, data) { localStorage.setItem(`v6_db_${key}`, JSON.stringify(data)); }
+
+    function toggleOperationalTabs() {
+      const collapsibleWrap = document.getElementById('sidebar-nav-collapsible');
+      const toggleBtn = document.getElementById('toggle-frameworks-btn');
+      if (collapsibleWrap.style.display === 'none') {
+        collapsibleWrap.style.display = 'block';
+        toggleBtn.textContent = 'Collapse';
+      } else {
+        collapsibleWrap.style.display = 'none';
+        toggleBtn.textContent = 'Expand';
+      }
+    }
+
+    function openSidebar() { document.getElementById('sidebar').classList.add('mobile-active'); }
+    function closeSidebar() { document.getElementById('sidebar').classList.remove('mobile-active'); }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildNavigationMenu();
+      buildDynamicViews();
+      buildAnnualReviewForm();
+      checkLifecycleReset();
+      hydrateFitnessViews();
+
+      const loginInput = document.getElementById('operator-password-input');
+      if (loginInput) {
+        loginInput.addEventListener('keypress', (event) => {
+          if (event.key === 'Enter') { handleOperatorAuthentication(); }
+        });
+      }
+    });
+
+    function handleOperatorAuthentication() {
+      const pinInputField = document.getElementById('operator-password-input');
+      if (!pinInputField) return;
+      
+      const enteredValue = pinInputField.value.trim();
+      const MASTER_KEY = "310707";
+
+      if (enteredValue === MASTER_KEY) {
+        localStorage.setItem('appSessionAuthenticatedStateFlag', 'true');
+        document.getElementById('login-screen').style.opacity = '0';
+        
+        setTimeout(() => {
+          document.getElementById('login-screen').style.display = 'none';
+          document.getElementById('sidebar').style.display = 'flex';
+          document.getElementById('main-content').style.display = 'block';
+          document.getElementById('mobile-menu-trigger').classList.add('logged-in');
+          
+          activateView('dashboard-view');
+          renderMonthlyFitnessTracker();
+          renderRecentFeed();
+
+          TIMELINE_CONFIG.forEach(m => {
+            if (!m.isLocked) {
+              m.items.forEach(sub => {
+                refreshSubStream(m.id, sub, `${m.id}_${sub.replace(/[^a-zA-Z0-9]/g, '_')}`);
+              });
+            }
+          });
+          
+          // TRIGGER THE MASTER WELCOME ANIMATED MODAL POPUP
+          const popupOverlay = document.getElementById('master-welcome-popup');
+          if (popupOverlay) {
+            popupOverlay.classList.add('show-popup');
+          }
+        }, 400);
+      } else {
+        showToastNotification("Access Denied: Invalid Security Keyphrase Parameters.", "error");
+        const loginCard = document.querySelector('.login-card');
+        if (loginCard) {
+          loginCard.classList.add('shake-err');
+          setTimeout(() => loginCard.classList.remove('shake-err'), 400);
+        }
+        pinInputField.value = '';
+        pinInputField.focus();
+      }
+    }
+
+    function dismissMasterPopup() {
+      const popupOverlay = document.getElementById('master-welcome-popup');
+      if (popupOverlay) {
+        popupOverlay.classList.remove('show-popup');
+      }
+    }
+
+    function activateView(viewId) {
+      document.querySelectorAll('.view-container').forEach(v => {
+        v.classList.remove('active-view');
+      });
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active-view');
+      closeSidebar();
+    }
+
+    function buildNavigationMenu() {
+      const sidebarContainer = document.getElementById('sidebar-nav');
+      const filterSelect = document.getElementById('feed-filter');
+      if (!sidebarContainer) return;
+      sidebarContainer.innerHTML = '';
+
+      TIMELINE_CONFIG.forEach(mod => {
+        const buttonNode = document.createElement('button');
+        buttonNode.className = 'module-btn sidebar-link';
+        buttonNode.onclick = () => activateView(`view-${mod.id}`);
+        
+        let displayTitle = mod.isLocked ? `🔒 ${mod.name.split('. ')[1]}` : mod.name;
+        buttonNode.innerHTML = `<span>${displayTitle}</span><span class="badge" id="badge-${mod.id}">0</span>`;
+        sidebarContainer.appendChild(buttonNode);
+
+        if (filterSelect) {
+          const optionNode = document.createElement('option');
+          optionNode.value = mod.id;
+          optionNode.textContent = mod.name;
+          filterSelect.appendChild(optionNode);
+        }
+        updateModuleCountBadge(mod.id);
+      });
+    }
+
+    function updateModuleCountBadge(modId) {
+      const mod = TIMELINE_CONFIG.find(m => m.id === modId);
+      if (!mod) return;
+      let aggregate = 0;
+      mod.items.forEach(sub => {
+        aggregate += fetchLogs(`${modId}_${sub}`).length;
+      });
+      const targetBadge = document.getElementById(`badge-${modId}`);
+      if (targetBadge) targetBadge.textContent = aggregate;
+    }
+
+    function buildDynamicViews() {
+      const rootNode = document.getElementById('dynamic-views-root');
+      if (!rootNode) return;
+      rootNode.innerHTML = '';
+
+      TIMELINE_CONFIG.forEach(mod => {
+        const view = document.createElement('div');
+        view.id = `view-${mod.id}`;
+        view.className = 'view-container';
+        if (mod.isLocked) {
+          view.innerHTML = `
+            <div style="margin-bottom: 28px;">
+              <h1 style="font-size: 28px; font-weight:700; color:var(--danger)">${mod.name}</h1>
+            </div>
+            <div id="shadow-auth-gate" class="shadow-lock-container">
+              <div id="pin-dynamic-prompt-label">Checking code profile status...</div>
+              <div class="pin-wrapper">
+                <input type="password" id="shadow-pin-input" class="shadow-pin-input-field" placeholder="Enter PIN..." />
+                <button class="shadow-unlock-btn" onclick="evaluateShadowAccess()">Unlock Node</button>
+              </div>
+            </div>
+            <div id="shadow-secure-body" style="display:none;">
+              <div class="sub-topic-grid" id="shadow-injected-grid-anchor"></div>
+            </div>
+          `;
+        } else {
+          let subTopicCardsHtml = '';
+          mod.items.forEach(sub => {
+            const sanitizedSubId = `${mod.id}_${sub.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            subTopicCardsHtml += `
+              <div class="sub-topic-card">
+                <div class="sub-topic-header">${sub}</div>
+                <div class="entry-interface">
+                  <textarea id="input-${sanitizedSubId}" class="entry-textarea" rows="2" placeholder="Record entry log..."></textarea>
+                  <button class="commit-btn" onclick="executeDataCommit('${mod.id}','${sub}','${sanitizedSubId}')">Commit</button>
+                </div>
+                <div class="history-stream" id="stream-${sanitizedSubId}"></div>
+              </div>
+            `;
+          });
+          view.innerHTML = `
+            <div style="margin-bottom: 28px;">
+              <h1 style="font-size: 28px; font-weight:700;">${mod.name}</h1>
+              <p style="color: var(--muted); font-size: 14px;">Objective: ${mod.objective}</p>
+            </div>
+            <div class="sub-topic-grid">${subTopicCardsHtml}</div>
+          `;
+        }
+        rootNode.appendChild(view);
+      });
+    }
+
+    function buildAnnualReviewForm() {
+      const anchor = document.getElementById('annual-review-inputs-anchor');
+      if (!anchor) return;
+      anchor.innerHTML = '';
+      ANNUAL_INPUTS.forEach(field => {
+        const card = document.createElement('div');
+        card.className = 'annual-box';
+        let elementHtml = field.type === 'input' ? 
+          `<input type="text" id="ar-field-${field.id}" onchange="saveAnnualReviewItem('${field.id}')" />` : 
+          `<textarea id="ar-field-${field.id}" rows="2" onchange="saveAnnualReviewItem('${field.id}')"></textarea>`;
+        card.innerHTML = `<label>${field.label}</label>${elementHtml}`;
+        anchor.appendChild(card);
+        
+        const cached = localStorage.getItem(`v6_annual_${field.id}`);
+        if (cached) {
+          setTimeout(() => {
+            const el = document.getElementById(`ar-field-${field.id}`);
+            if (el) el.value = cached;
+          }, 50);
+        }
+      });
+    }
+
+    function saveAnnualReviewItem(id) {
+      const val = document.getElementById(`ar-field-${id}`).value;
+      localStorage.setItem(`v6_annual_${id}`, val);
+      showToastNotification("Annual Retrospective parameter log cached.", "success");
+    }
+
+    function executeDataCommit(modId, subName, fieldId) {
+      const txtArea = document.getElementById(`input-${fieldId}`);
+      if (!txtArea || !txtArea.value.trim()) return;
+      const content = txtArea.value.trim();
+      const logs = fetchLogs(`${modId}_${subName}`);
+      
+      const newRecord = {
+        id: 'log_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        timestamp: new Date().toLocaleString(),
+        content: content,
+        text: content 
+      };
+      logs.unshift(newRecord);
+      commitLogs(`${modId}_${subName}`, logs);
+
+      const lookupKey = `${modId}_${subName}`;
+      if (!appDataLogsStore[lookupKey]) appDataLogsStore[lookupKey] = [];
+      appDataLogsStore[lookupKey].unshift(newRecord);
+      localStorage.setItem('appDataLogsStore', JSON.stringify(appDataLogsStore));
+
+      txtArea.value = '';
+      refreshSubStream(modId, subName, fieldId);
+      updateModuleCountBadge(modId);
+      renderRecentFeed();
+      calculateGlobalMetrics();
+      showToastNotification("Matrix block added to local memory channels.", "success");
+    }
+
+    function deleteDataNode(modId, subName, fieldId, index) {
+      const logs = fetchLogs(`${modId}_${subName}`);
+      logs.splice(index, 1);
+      commitLogs(`${modId}_${subName}`, logs);
+
+      const lookupKey = `${modId}_${subName}`;
+      if (appDataLogsStore[lookupKey]) {
+        appDataLogsStore[lookupKey].splice(index, 1);
+        localStorage.setItem('appDataLogsStore', JSON.stringify(appDataLogsStore));
+      }
+
+      refreshSubStream(modId, subName, fieldId);
+      updateModuleCountBadge(modId);
+      renderRecentFeed();
+      calculateGlobalMetrics();
+      showToastNotification("Data index record erased.", "warning");
+    }
+
+    function refreshSubStream(modId, subName, fieldId) {
+      renderCategoryHistoricalFeed(modId, subName, `stream-${fieldId}`);
+    }
+
+    function renderCategoryHistoricalFeed(moduleId, subId, anchorElementId) {
+      const streamNode = document.getElementById(anchorElementId);
+      if (!streamNode) return;
+      streamNode.innerHTML = '';
+
+      const legacyKey = `${moduleId}_${subId}`;
+      const recordLookupKey = `${moduleId}_${subId}`;
+      if ((!appDataLogsStore[recordLookupKey] || appDataLogsStore[recordLookupKey].length === 0)) {
+        const backupData = fetchLogs(legacyKey);
+        if (backupData.length > 0) {
+          appDataLogsStore[recordLookupKey] = backupData;
+          localStorage.setItem('appDataLogsStore', JSON.stringify(appDataLogsStore));
+        }
+      }
+
+      const operationalLogsArray = appDataLogsStore[recordLookupKey] || [];
+
+      if (!operationalLogsArray.length) {
+        streamNode.innerHTML = '<span class="empty-msg">No entries in this track.</span>';
+        return;
+      }
+
+      operationalLogsArray.forEach((logItem, idx) => {
+        const logRowItem = document.createElement('div');
+        logRowItem.className = 'history-item';
+        logRowItem.id = `log-row-${logItem.id || idx}`;
+        
+        const itemText = logItem.content || logItem.text || "";
+        const itemId = logItem.id || `legacy_${idx}`;
+        
+        logRowItem.innerHTML = `
+          <span class="history-meta">// TIMESTAMP: ${logItem.timestamp}</span>
+          <div class="history-text" id="text-canvas-${itemId}">${itemText}</div>
+          <div class="action-btns">
+            <button class="edit-log-btn" title="Edit Log" onclick="initializeLogEdit('${moduleId}','${subId}','${itemId}')">✏️</button>
+            <button class="delete-log-btn" title="Delete Log" onclick="executeLogDeletion('${moduleId}','${subId}','${itemId}', ${idx})">✕</button>
+          </div>
+        `;
+        streamNode.appendChild(logRowItem);
+      });
+    }
+
+    function initializeLogEdit(moduleId, subId, logId) {
+      const textCanvas = document.getElementById(`text-canvas-${logId}`);
+      if (!textCanvas) return;
+
+      const currentLogTextValue = textCanvas.textContent;
+      textCanvas.innerHTML = `
+        <input type="text" id="inline-edit-input-${logId}" class="pin-input-field" style="width:100%; padding:6px 10px; font-size:13px;" value="${currentLogTextValue}" onkeypress="if(event.key==='Enter') saveInlineLogModification('${moduleId}','${subId}','${logId}')"/>
+        <button class="shadow-unlock-btn" style="padding:4px 10px; font-size:11px; margin-top:6px;" onclick="saveInlineLogModification('${moduleId}','${subId}','${logId}')">Save</button>
+      `;
+    }
+
+    function saveInlineLogModification(moduleId, subId, logId) {
+      const editedValue = document.getElementById(`inline-edit-input-${logId}`).value.trim();
+      if (editedValue === '') return;
+
+      const lookupKey = `${moduleId}_${subId}`;
+      if (appDataLogsStore[lookupKey]) {
+        let targetIdx = appDataLogsStore[lookupKey].findIndex(item => item.id === logId);
+        if (targetIdx === -1 && logId.startsWith('legacy_')) {
+          targetIdx = parseInt(logId.split('_')[1]);
+        }
+        if (targetIdx !== -1 && appDataLogsStore[lookupKey][targetIdx]) {
+          appDataLogsStore[lookupKey][targetIdx].text = editedValue;
+          appDataLogsStore[lookupKey][targetIdx].content = editedValue;
+          localStorage.setItem('appDataLogsStore', JSON.stringify(appDataLogsStore));
+          commitLogs(lookupKey, appDataLogsStore[lookupKey]);
+          showToastNotification("Log entry data modified successfully.", "success");
+          renderCategoryHistoricalFeed(moduleId, subId, `stream-${moduleId}_${subId.replace(/[^a-zA-Z0-9]/g, '_')}`);
+          renderRecentFeed();
+        }
+      }
+    }
+
+    function executeLogDeletion(moduleId, subId, logId, fallbackIdx) {
+      const lookupKey = `${moduleId}_${subId}`;
+      if (appDataLogsStore[lookupKey]) {
+        appDataLogsStore[lookupKey] = appDataLogsStore[lookupKey].filter(item => item.id !== logId);
+        if (logId.startsWith('legacy_')) {
+          appDataLogsStore[lookupKey].splice(fallbackIdx, 1);
+        }
+        localStorage.setItem('appDataLogsStore', JSON.stringify(appDataLogsStore));
+        commitLogs(lookupKey, appDataLogsStore[lookupKey]);
+        showToastNotification("Log entry removed from records.", "warning");
+        renderCategoryHistoricalFeed(moduleId, subId, `stream-${moduleId}_${subId.replace(/[^a-zA-Z0-9]/g, '_')}`);
+        updateModuleCountBadge(moduleId);
+        renderRecentFeed();
+        calculateGlobalMetrics();
+      }
+    }
+
+    function renderRecentFeed() {
+      const feedContainer = document.getElementById('global-dashboard-feed');
+      if (!feedContainer) return;
+
+      const query = document.getElementById('feed-search') ? document.getElementById('feed-search').value.toLowerCase().trim() : '';
+      const filterChannel = document.getElementById('feed-filter') ? document.getElementById('feed-filter').value : 'all';
+
+      let unifiedLogs = [];
+      TIMELINE_CONFIG.forEach(mod => {
+        if (mod.id === 'm15') return;
+        if (filterChannel !== 'all' && mod.id !== filterChannel) return;
+
+        mod.items.forEach(sub => {
+          const logs = fetchLogs(`${mod.id}_${sub}`);
+          logs.forEach(log => {
+            const txt = log.content || log.text || '';
+            if (query && !txt.toLowerCase().includes(query)) return;
+            unifiedLogs.push({
+              ...log,
+              moduleName: mod.name,
+              subName: sub,
+              rawDate: new Date(log.timestamp)
+            });
+          });
+        });
+      });
+
+      unifiedLogs.sort((a, b) => b.rawDate - a.rawDate);
+      feedContainer.innerHTML = '';
+
+      if (!unifiedLogs.length) {
+        feedContainer.innerHTML = '<span class="empty-msg">No matching telemetry matrix logs found.</span>';
+        return;
+      }
+
+      unifiedLogs.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'history-item';
+        row.innerHTML = `
+          <span class="history-meta">[${item.subName.toUpperCase()}] // ${item.timestamp}</span>
+          <div class="history-text">${item.content || item.text}</div>
+        `;
+        feedContainer.appendChild(row);
+      });
+    }
+
+    function calculateGlobalMetrics() {
+      let completeCount = 0, aggregateTotalCount = 0;
+      ['gym', 'study', 'routine'].forEach(category => {
+        const tasks = fetchLogs(`fit_tasks_${category}`);
+        tasks.forEach(task => {
+          aggregateTotalCount++;
+          if (task.completed) completeCount++;
+        });
+      });
+
+      const ratio = aggregateTotalCount > 0 ? Math.round((completeCount / aggregateTotalCount) * 100) : 0;
+      if (document.getElementById('metric-graph-fill')) {
+        document.getElementById('metric-graph-fill').style.width = `${ratio}%`;
+        document.getElementById('metric-percentage-txt').textContent = `${ratio}% (${completeCount}/${aggregateTotalCount})`;
+      }
+    }
+
+    function evaluateShadowAccess() {
+      const pin = document.getElementById('shadow-pin-input').value;
+      if (pin === "310707") {
+        document.getElementById('shadow-auth-gate').style.display = 'none';
+        document.getElementById('shadow-secure-body').style.display = 'block';
+        showToastNotification("Secure database clearance unlocked.", "success");
+        
+        const mod = TIMELINE_CONFIG.find(m => m.id === 'm15');
+        const anchor = document.getElementById('shadow-injected-grid-anchor');
+        if (anchor && mod) {
+          anchor.innerHTML = '';
+          mod.items.forEach(sub => {
+            const fieldId = `${mod.id}_${sub.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            const card = document.createElement('div');
+            card.className = 'sub-topic-card';
+            card.innerHTML = `
+              <div class="sub-topic-header">${sub}</div>
+              <div class="entry-interface">
+                <textarea id="input-${fieldId}" class="entry-textarea" rows="2" placeholder="Write classified file..."></textarea>
+                <button class="commit-btn" onclick="executeDataCommit('${mod.id}','${sub}','fieldId')">Commit Secure</button>
+              </div>
+              <div class="history-stream" id="stream-${fieldId}"></div>
+            `;
+            anchor.appendChild(card);
+            refreshSubStream(mod.id, sub, fieldId);
+          });
+        }
+      } else {
+        showToastNotification("Invalid security parameters.", "error");
+      }
+    }
+
+    function checkLifecycleReset() {
+      const lastCheck = localStorage.getItem('v6_system_cycle_stamp');
+      const standardToday = new Date().toDateString();
+      if (lastCheck !== standardToday) {
+        localStorage.setItem('v6_system_cycle_stamp', standardToday);
+      }
+    }
+
+    function renderMonthlyFitnessTracker() {
+      const anchorNode = document.getElementById('fitness-calendar-anchor');
+      if (!anchorNode) return;
+      anchorNode.innerHTML = '';
+
+      const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      daysOfWeek.forEach(d => {
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'calendar-day-header';
+        dayHeader.textContent = d;
+        anchorNode.appendChild(dayHeader);
+      });
+
+      const currentDateObject = new Date();
+      const currentYear = currentDateObject.getFullYear();
+      const currentMonthIndex = currentDateObject.getMonth();
+      
+      const totalDaysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+      const firstDayIndexValue = new Date(currentYear, currentMonthIndex, 1).getDay();
+
+      for (let i = 0; i < firstDayIndexValue; i++) {
+        anchorNode.appendChild(document.createElement('div'));
+      }
+
+      for (let currentDay = 1; currentDay <= totalDaysInMonth; currentDay++) {
+        const formattedDayString = String(currentDay).padStart(2, '0');
+        const formattedMonthString = String(currentMonthIndex + 1).padStart(2, '0');
+        const lookupDateKey = `${currentYear}-${formattedMonthString}-${formattedDayString}`;
+
+        const dateGridNode = document.createElement('div');
+        dateGridNode.className = 'calendar-date-node';
+        dateGridNode.innerHTML = `<span>${currentDay}</span>`;
+
+        if (calendarFitnessDatabase[lookupDateKey] === true) {
+          dateGridNode.classList.add('status-filled');
+        } else if (calendarFitnessDatabase[lookupDateKey] === false) {
+          dateGridNode.classList.add('status-empty');
+        } else {
+          const evaluatedDateInstance = new Date(currentYear, currentMonthIndex, currentDay);
+          const standardTodayInstance = new Date();
+          standardTodayInstance.setHours(0,0,0,0);
+
+          if (evaluatedDateInstance > standardTodayInstance) {
+            dateGridNode.classList.add('status-future');
+          } else {
+            dateGridNode.classList.add('status-empty'); 
+          }
+        }
+
+        dateGridNode.onclick = () => {
+          const targetInstance = new Date(currentYear, currentMonthIndex, currentDay);
+          if (targetInstance > new Date()) return;
+          
+          calendarFitnessDatabase[lookupDateKey] = !calendarFitnessDatabase[lookupDateKey];
+          localStorage.setItem('calendarFitnessDatabase', JSON.stringify(calendarFitnessDatabase));
+          renderMonthlyFitnessTracker();
+        };
+
+        anchorNode.appendChild(dateGridNode);
+      }
+    }
+
+    function hydrateFitnessViews() {
+      ['gym', 'study', 'routine'].forEach(category => {
+        renderTaskCategoryItems(category);
+      });
+      calculateGlobalMetrics();
+    }
+
+    function renderTaskCategoryItems(category) {
+      const tasks = fetchLogs(`fit_tasks_${category}`);
+      const targetElement = document.getElementById(`${category}-tasks-container`);
+      if (!targetElement) return;
+      targetElement.innerHTML = '';
+
+      if (!tasks.length) {
+        targetElement.innerHTML = '<span class="empty-msg">No matrix metrics declared.</span>';
+        return;
+      }
+
+      tasks.forEach(task => {
+        const node = document.createElement('div');
+        node.className = `task-row-node ${task.completed ? 'completed' : ''}`;
+        node.onclick = () => toggleTaskStatus(category, task.id);
+        node.innerHTML = `
+          <div class="task-left-block">
+            <input type="checkbox" ${task.completed ? 'checked' : ''} style="pointer-events:none;" />
+            <span class="task-label-text">${task.label}</span>
+          </div>
+          <button class="task-delete-trigger" onclick="removeTaskItem('${category}', '${task.id}', event)">✕</button>
+        `;
+        targetElement.appendChild(node);
+      });
+    }
+
+    function createTaskItem(category) {
+      const input = document.getElementById(`add-${category}-txt`);
+      if (!input || !input.value.trim()) return;
+      const tasks = fetchLogs(`fit_tasks_${category}`);
+      tasks.push({
+        id: 'task_' + Date.now() + Math.random().toString(36).substr(2, 3),
+        label: input.value.trim(),
+        completed: false
+      });
+      commitLogs(`fit_tasks_${category}`, tasks);
+      input.value = '';
+      renderTaskCategoryItems(category);
+      calculateGlobalMetrics();
+      showToastNotification("New track item compiled into matrix loop.", "success");
+    }
+
+    function toggleTaskStatus(category, id) {
+      const tasks = fetchLogs(`fit_tasks_${category}`);
+      const idx = tasks.findIndex(t => t.id === id);
+      if (idx !== -1) {
+        tasks[idx].completed = !tasks[idx].completed;
+        commitLogs(`fit_tasks_${category}`, tasks);
+        renderTaskCategoryItems(category);
+        calculateGlobalMetrics();
+      }
+    }
+
+    function removeTaskItem(category, id, e) {
+      if (e) e.stopPropagation();
+      let tasks = fetchLogs(`fit_tasks_${category}`);
+      tasks = tasks.filter(t => t.id !== id);
+      commitLogs(`fit_tasks_${category}`, tasks);
+      renderTaskCategoryItems(category);
+      calculateGlobalMetrics();
+      showToastNotification("Track metric deleted from array stack.", "warning");
+    }
+
+    window.addEventListener('beforeunload', () => {
+      localStorage.removeItem('appSessionAuthenticatedStateFlag');
+    });
+  </script>
+</body>
+
+</html>
